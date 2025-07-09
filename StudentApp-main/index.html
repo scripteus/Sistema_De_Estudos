@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EstudanteApp - Sistema de Estudos</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/fce3df673c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<span id="claro"></span>
+
+<header>
+    <div id="logo">
+      <h1>StudantApp</h1>
+      <p>seu sistema de estudos</p>
+    </div>
+    <div id="div-theme">
+      <button id="btn-theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+</header>
+
+<nav>
+  <button data-section="materias" class="active">Matérias</button>
+  <button data-section="anotacoes">Anotações</button>
+  <button data-section="temporizador">Temporizador</button>
+  <button data-section="graficos">Gráficos</button>
+</nav>
+
+<section id="materias" class="active">
+  <h2>
+    <i class="fa-solid fa-book"></i>
+    Cadastro de Matérias
+  </h2>
+  <form id="form-materia">
+    <label for="nomeMateria">Nome da Matéria:</label>
+    <input type="text" id="nomeMateria" required />
+    <button type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-4 h-4 mr-2" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M12 5v14"></path>
+        </svg>
+        Adicionar Matéria
+    </button>
+  </form>
+  <h3>Matérias Cadastradas:</h3>
+  <div id="listaMaterias"></div>
+</section>
+
+<section id="anotacoes">
+  <h2>
+    <i class="fa-solid fa-pen-to-square"></i>
+    Criar Anotação
+</h2>
+  <form id="form-anotacao">
+    <label for="tituloAnotacao">Título:</label>
+    <input type="text" id="tituloAnotacao" required />
+
+    <label for="selectMateria">Matéria:</label>
+    <select id="selectMateria" required>
+      <option value="">-- Selecione --</option>
+    </select>
+
+    <label for="textoAnotacao">Anotação:</label>
+    <div class="format-buttons">
+      <button type="button" data-command="bold"><b>B</b></button>
+      <button type="button" data-command="italic"><i>I</i></button>
+      <button type="button" data-command="underline"><u>U</u></button>
+    </div>
+
+    <div id="editor" contenteditable="true" style="border: 1px solid #ccc; min-height: 150px; padding: 0.5em;"></div>
+
+    <button type="submit" style="margin-top:1em; padding:0.5em 1em;">Salvar Anotação</button>
+  </form>
+
+  <h3>Anotações Feitas:</h3>
+  <div id="listaAnotacoes"></div>
+</section>
+
+<section id="temporizador">
+  <h2>
+    <i class="fa-solid fa-stopwatch"></i>
+    Temporizador de Estudo
+  </h2>
+  <div id="timer-display">00:00:00</div>
+  <button id="start-timer">Iniciar Estudo</button>
+  <button id="stop-timer" disabled>Parar Estudo</button>
+</section>
+
+<section id="graficos">
+  <h2>
+    <i class="fa-solid fa-chart-simple"></i>
+    Gráfico do Tempo de Estudo
+    </h2>
+  <canvas id="chart" width="700" height="300"></canvas>
+</section>
+
+<!-- Modal da anotação -->
+<div id="anotacao-modal">
+  <div class="modal-content">
+    <h3 id="modal-titulo"></h3>
+    <div id="modal-texto" style="white-space: pre-wrap;"></div>
+    <button class="close-modal">Fechar</button>
+  </div>
+</div>
+
+<script src="src/script.js"></script>
+<script src="src/theme.js"></script>
+
+
+</body>
+</html>

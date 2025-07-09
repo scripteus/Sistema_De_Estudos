@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+
+/* 
+$corSombra: #00000079;
+$corCardAnotacao: white; 
+*/
+:root {
+  --cor-background: #FFFFFF;
+  --cor-principal: #2C3E50;
+  --cor-secundaria: #3498DB;
+  --cor-background-section: #ECF0F1;
+  --cor-sombra: rgba(0, 0, 0, 0.1);
+  --cor-card-anotacao: #FFFFFF;
+}
+[data-theme="dark"] {
+  --cor-background: #2C3E50;
+  --cor-principal: #ECF0F1;
+  --cor-secundaria: #2980B9;
+  --cor-background-section: #34495E;
+  --cor-sombra: rgba(0, 0, 0, 0.2);
+  --cor-card-anotacao: #2C3E50;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--cor-background);
+  color: var(--cor-principal);
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3 {
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+section, .card-anotacao {
+  background: var(--cor-background-section);
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--cor-sombra);
+  margin-bottom: 1em;
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--cor-principal);
+  color: var(--cor-background);
+  padding: 0.2em 1em;
+  text-align: center;
+
+  user-select: none;
+}
+header #logo {
+    width: 90%;
+}
+header #div-theme {
+
+    width: 10%;
+}
+#div-theme button {
+    background-color: transparent;
+    color: var(--cor-background);
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+
+    transition: 0.3s ease;
+}
+
+header h1 {
+    font-family: "Berkshire Swash", serif;
+    font-size: 2.8em;
+    font-weight: 400;
+    font-style: normal;
+
+    color: var(--cor-background);
+
+    margin: 0.5em 0 0 0;
+}
+header p {
+    font-family: "Satisfy", cursive;
+    font-size: 1em;
+    color: var(--cor-background);
+
+    margin: 0.2em 0 0.5em 0;
+}
+
+nav {
+  display: flex;
+  background: transparent;
+  justify-content: center;
+}
+nav button {
+  background: transparent;
+  border: none;
+  color: var(--cor-principal);
+  padding: 1em 2em;
+  cursor: pointer;
+  font-family: "Edu VIC WA NT Hand Pre", cursive;
+  font-size: 1em;
+
+  border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
+
+  transition: 0.3s ease;
+}
+nav button.active {
+  background: var(--cor-principal);
+  color: var(--cor-background);
+}
+section {
+  display: none;
+  padding: 1em 2em;
+  max-width: 800px;
+  margin: auto;
+  color: var(--cor-principal);
+  background: var(--cor-background-section);
+  box-shadow: 0 0 10px var(--cor-sombra);
+  margin-top: 1em;
+  border-radius: 5px;
+}
+section.active {
+  display: block;
+}
+label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+button {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  border: none;
+  padding: 0.8em 1.2em;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px var(--cor-sombra);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #217dbb;
+  transform: translateY(-2px);
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.3em;
+  font-size: 1em;
+}
+
+select {
+    padding: 0.6em 1em;
+
+    background-color: var(--cor-principal);
+    color: var(--cor-background-section);
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+select:hover {
+    background-color: var(--cor-secundaria);
+}
+
+textarea {
+  height: 150px;
+}
+.format-buttons {
+  margin-bottom: 0.5em;
+}
+.format-buttons button {
+  background-color: transparent;
+  border: none;
+  margin-right: 0.5em;
+  padding: 0.4em 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+.format-buttons button:hover {
+  background-color: #2222225b;
+  border: none;
+}
+.anotacao-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.6em;
+  padding: 0.6em;
+  background: var(--cor-card-anotacao);
+  color: var(--cor-background-section);
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1em;
+  z-index: -1;
+}
+#anotacao-modal {
+  display: none;
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+#anotacao-modal .modal-content {
+  background: var(--cor-background-section);
+  color: var(--cor-principal);
+  padding: 1em 2em;
+  border-radius: 6px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+#anotacao-modal button.close-modal {
+  margin-top: 1em;
+  background: var(--cor-principal);
+  color: var(--cor-background-section);
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+#listaMaterias {
+    width: 100%;
+}
+
+.materias-cadastradas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+
+    padding: 0.5em 0.5em 0.5em 1em;
+    border: 0.1em solid var(--cor-principal);
+    width: 100%;
+}
+.materias-cadastradas button {
+    background-color: #c62828;
+    color: white;
+    width: 6%;
+    height: 2.5em;
+
+    border: none;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.materias-cadastradas button:hover {
+    background-color: #f44c4c;
+}
+
+/* Temporizador */
+#timer-display {
+  font-size: 3em;
+  text-align: center;
+  margin-top: 1em;
+}
+#start-timer, #stop-timer {
+  padding: 0.8em 1.5em;
+  font-size: 1.2em;
+  margin: 1em 0.5em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+#start-timer {
+  background: var(--cor-principal);
+  color: var(--cor-background-section);
+
+  transition: 0.2s ease;
+}
+#start-timer:hover {
+    background-color: var(--cor-secundaria);
+}
+#stop-timer {
+  background: #c62828;
+  color: white;
+
+  transition: 0.2s ease;
+}
+#stop-timer:hover {
+    background-color: #f44c4c;
+}
+/* Gráfico */
+#chart {
+  max-width: 700px;
+  margin: 1em auto;
+
+  background-color: white;
+}
+
+@media (550px >= width) {
+  nav {
+    display: flex;
+    background: transparent;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  nav > * {
+    flex: 0 0 auto; /* Evita que os itens se encolham ou quebrem linha */
+  }
+
+  .materias-cadastradas button {
+    width: 15%;
+    height: 2.5em;
+  }
+
+  canvas {
+    display: flex;
+    justify-content: flex-start;
+    white-space: nowrap;
+  
+    width: 100%;
+    height: 100%;
+
+    
+  }
+
+
+}
